@@ -2,14 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>eureka-provider</module>
-        <module>eureka-consumer</module>
-    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.12.RELEASE</version>
+        <version>1.5.19.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.af.client</groupId>
@@ -18,25 +14,21 @@
     <packaging>pom</packaging>
     <name>pc</name>
     <description>Demo project for provider and consumer</description>
-
+    <modules>
+        <module>eureka-provider</module>
+        <module>eureka-consumer</module>
+        <module>consul-consumer</module>
+        <module>consul-provider</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
-        <org.springframework.cloud_version>Edgware.RELEASE</org.springframework.cloud_version>
-        <org.springframework.eureka_version>1.4.6.RELEASE</org.springframework.eureka_version>
-        <org.springframework.boot_version>1.5.19.RELEASE</org.springframework.boot_version>
-        <org.springframework.consul_version> 1.3.5.RELEASE</org.springframework.consul_version>
-
+        <org.springframework.cloud_version>Edgware.SR5</org.springframework.cloud_version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
@@ -54,25 +46,8 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-                <version>${org.springframework.consul_version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-                <version>${org.springframework.eureka_version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${org.springframework.cloud_version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${org.springframework.boot_version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
