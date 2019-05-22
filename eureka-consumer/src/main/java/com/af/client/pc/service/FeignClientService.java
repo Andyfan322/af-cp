@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 2019年05月10日
  */
 
-@FeignClient("produce-service-eureka")
+@FeignClient(name="produce-service-eureka")
 public interface FeignClientService {
 
     /**
-     * 消费注册到eureka上的服务
-     *
+     * 消费
      * @return
      */
     @RequestMapping("ek/provider")

@@ -1,7 +1,7 @@
 package com.af.client.pc;
 
 
-import com.af.client.pc.service.FeignClientService;
+import hf.FeignClientService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @RestController
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages ={"com.af.client.pc","hf"} )
 @EnableSwagger2()
 @Api(value = "服务消费者swagger示例")
 public class ConsulConsumerApplication {
@@ -43,6 +43,9 @@ public class ConsulConsumerApplication {
     @ApiOperation(value = "获取注册到consul上的服务")
     @RequestMapping("/co/consumer")
     public String consumer() {
+
+
+
         return service.consumer();
     }
 

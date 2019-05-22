@@ -1,21 +1,14 @@
-package com.af.client.pc.service;
+package hf;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author andyFan
- * @since 2019年05月10日
+ * @since 2019年05月22日
  */
-
 @FeignClient("produce-service-consul")
 public interface FeignClientService {
-
-    /**
-     * 消费注册到consul上的服务
-     *
-     * @return
-     */
-    @RequestMapping("co/provider")
+    @RequestMapping({"co/provider"})
     String consumer();
 }

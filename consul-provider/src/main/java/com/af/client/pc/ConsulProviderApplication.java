@@ -38,7 +38,7 @@ public class ConsulProviderApplication {
     @ApiOperation("注册到eureka上的服务")
     @RequestMapping("/co/provider")
     public String provider(String name) {
-        return "consul provider";
+        return "eureka provider";
     }
 
     @Bean
